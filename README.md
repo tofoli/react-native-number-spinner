@@ -12,17 +12,19 @@ rn-spinner
 
 Number Spinner component for react-native.
 
+Based on https://github.com/RNComponents/rn-spinner
+
 ## Install
 
 ```
-npm install rn-spinner --save
+npm install react-native-number-spinner --save
 ```
 
 ## Usage
 
 ```
 // Require
-var Spinner = require('rn-spinner');
+include Spinner from 'react-native-number-spinner';
 
 // Use
 <Spinner max={10}
