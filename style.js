@@ -5,7 +5,8 @@ module.exports = React.StyleSheet.create({
     borderWidth: 0.5,
     borderRadius: 4,
     flexDirection: 'row',
-    overflow: 'hidden'
+    overflow: 'hidden',
+    width: 200
   },
 
   btn: {

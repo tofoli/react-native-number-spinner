@@ -12,8 +12,6 @@ rn-spinner
 
 Number Spinner component for react-native.
 
-Based on https://github.com/RNComponents/rn-spinner
-
 ## Install
 
 ```
