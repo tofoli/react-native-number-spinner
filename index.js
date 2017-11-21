@@ -10,7 +10,6 @@ var styles = require('./style')
 class Spinner extends Component {
     constructor(props) {
       super(props);
-      console.log(props);
       this.state = {
           min: props.min || 0,
           max: props.max || 99,
@@ -26,7 +25,6 @@ class Spinner extends Component {
           width: props.width || 90,
           height: props.height || 30
       };
-      console.log(this.state);
     }
 
   _onNumChange (num) {
@@ -34,7 +32,6 @@ class Spinner extends Component {
 };
 
   _increase () {
-      console.log(this.state);
     if (this.state.disabled) return;
 
     if (this.state.max > this.state.num) {
