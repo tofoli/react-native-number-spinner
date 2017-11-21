@@ -8,47 +8,26 @@ var styles = require('./style')
 
 
 class Spinner extends Component {
-
-  state = {
-    min: 0,
-    max: 99,
-    default: 0,
-    num: 0,
-    color: '#33c9d6',
-    numColor: '#333',
-    numBgColor: 'white',
-    showBorder: true,
-    fontSize: 14,
-    btnFontSize: 14,
-    buttonTextColor: 'white',
-    disabled: false,
-    width: 90,
-    height: 30
-};
-
-  componentWillReceiveProps (nextProps) {
-      console.log(this.state, nextProps, 'nextProps Spinner ');
-    if (nextProps.disabled) {
-      this.setState({
-        disabled: nextProps.disabled
-    });
+    constructor(props) {
+      super(props);
+      console.log(props);
+      this.state = {
+          min: props.min || 0,
+          max: props.max || 99,
+          num: props.default || 0,
+          color: props.color || '#33c9d6',
+          numColor: props.numColor || '#333',
+          numBgColor: props.numBgColor || 'white',
+          showBorder: props.showBorder || true,
+          fontSize: props.fontSize || 14,
+          btnFontSize: props.btnFontSize || 14,
+          buttonTextColor: props.buttonTextColor || 'white',
+          disabled: props.disabled || false,
+          width: props.width || 90,
+          height: props.height || 30
+      };
+      console.log(this.state);
     }
-    if (nextProps.min) {
-      this.setState({
-        min: nextProps.min
-    });
-    }
-    if (nextProps.max) {
-      this.setState({
-        max: nextProps.max
-    });
-    }
-    if (nextProps.value) {
-      this.setState({
-        num: nextProps.value
-    });
-    }
-  }
 
   _onNumChange (num) {
     if (this.props.onNumChange) this.props.onNumChange(num);
