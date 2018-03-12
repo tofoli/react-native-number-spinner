@@ -11,12 +11,15 @@ import styles from './style';
 class Spinner extends PureComponent {
     constructor(props) {
       super(props);
+
+      const step = props.step || 1;
+
       this.state = {
           min: props.min || 0,
           max: props.max || 99,
           num: props.default || 0,
-          step: props.step || 1,
-          precision: (props.step || 1).toString().split('.')[1].length,
+          step,
+          precision: (step.toString().split('.')[1] || '').length,
           color: props.color || '#33c9d6',
           numColor: props.numColor || '#333',
           numBgColor: props.numBgColor || 'white',
