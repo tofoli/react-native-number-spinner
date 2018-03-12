@@ -1,19 +1,20 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import {
   View,
   Text,
   TouchableOpacity
 } from 'react-native';
-var styles = require('./style')
+import styles from './style';
 
 
-class Spinner extends Component {
+class Spinner extends PureComponent {
     constructor(props) {
       super(props);
       this.state = {
           min: props.min || 0,
           max: props.max || 99,
           num: props.default || 0,
+          step: props.step || 1,
           color: props.color || '#33c9d6',
           numColor: props.numColor || '#333',
           numBgColor: props.numBgColor || 'white',
@@ -35,7 +36,7 @@ class Spinner extends Component {
     if (this.state.disabled) return;
 
     if (this.state.max > this.state.num) {
-      var num = this.state.num + 1;
+      var num = this.state.num + this.state.step;
       if (typeof this.state.value === 'undefined') {
         this.setState({
           num: num
@@ -50,7 +51,7 @@ class Spinner extends Component {
     if (this.state.disabled) return;
 
     if (this.state.min < this.state.num) {
-      var num = this.state.num - 1;
+      var num = this.state.num - this.state.step;
       if (typeof this.state.value === 'undefined') {
         this.setState({
           num: num
