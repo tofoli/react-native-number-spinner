@@ -16,5 +16,8 @@
     "number"
   ],
   "author": "skiddolo <skiddolo@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "round10": "^1.0.3"
+  }
 }

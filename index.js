@@ -4,6 +4,7 @@ import {
   Text,
   TouchableOpacity
 } from 'react-native';
+import { round10 } from 'round10';
 import styles from './style';
 
 
@@ -15,6 +16,7 @@ class Spinner extends PureComponent {
           max: props.max || 99,
           num: props.default || 0,
           step: props.step || 1,
+          precision: (props.step || 1).toString().split('.')[1].length,
           color: props.color || '#33c9d6',
           numColor: props.numColor || '#333',
           numBgColor: props.numBgColor || 'white',
@@ -36,7 +38,7 @@ class Spinner extends PureComponent {
     if (this.state.disabled) return;
 
     if (this.state.max > this.state.num) {
-      var num = this.state.num + this.state.step;
+      var num = round10(this.state.num + this.state.step, this.state.precision * -1);
       if (typeof this.state.value === 'undefined') {
         this.setState({
           num: num
@@ -51,7 +53,7 @@ class Spinner extends PureComponent {
     if (this.state.disabled) return;
 
     if (this.state.min < this.state.num) {
-      var num = this.state.num - this.state.step;
+      var num = round10(this.state.num - this.state.step, this.state.precision * -1);
       if (typeof this.state.value === 'undefined') {
         this.setState({
           num: num
